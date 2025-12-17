@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
-        /* 1. Universal Reset: Targets ALL elements */
+        /* 1. Universal Reset (Still good practice) */
         * {
             margin: 0 !important;
             padding: 0 !important;
-            box-sizing: border-box !important; /* Adding this just in case */
+            box-sizing: border-box !important;
         }
 
-        /* 2. Global Sizing: Ensure primary containers cover the whole screen */
+        /* 2. Global Sizing (Still necessary for full screen) */
         html,
         body {
             width: 100%;
@@ -33,14 +33,17 @@
             height: 100%;
         }
 
-        /* 3. Targeted Zero-Height: This targets the FIRST element inside the app-root 
-           and ensures it has zero height and margin/padding. This often kills 
-           dynamically injected elements or initial component spacing. */
-        app-root > :first-child {
-            margin-top: 0 !important;
-            padding-top: 0 !important;
+        /* 3. TARGETED INJECTION HIDING: This targets common injection elements 
+           (like iframes or empty divs) and hides them completely. 
+           The :last-of-type is a guess for where an ad might be appended. */
+        iframe, 
+        div:empty:last-of-type,
+        body > div:first-child { 
+            display: none !important;
             height: 0 !important;
+            width: 0 !important; 
         }
+
     </style>
 
 </head>
