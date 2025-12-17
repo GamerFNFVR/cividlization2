@@ -11,42 +11,43 @@
   <script src='kongregate_api.js'></script>   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
-        /* 1. Reset everything to zero with high precedence */
+        /* 1. Universal Reset: Essential high-precedence cleanup */
         *, ::before, ::after {
             margin: 0 !important;
             padding: 0 !important;
             box-sizing: border-box !important;
         }
 
-        /* 2. Target the BODY directly with the highest possible specificity 
-           to ensure no default browser margin remains */
-        body {
+        /* 2. Body/HTML: Full-screen structural integrity */
+        html, body {
             margin: 0 !important;
             padding: 0 !important;
-            display: flex !important; 
-            flex-direction: column !important;
             width: 100% !important;
             height: 100% !important;
             overflow: hidden !important;
         }
 
-        /* 3. Global Sizing */
-        html {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
+        /* Use Flexbox on body */
+        body {
+            display: flex !important; 
+            flex-direction: column !important;
         }
         
-        /* 4. App Root Styling */
+        /* 3. APP ROOT COMPENSATION - The solution is here! */
         app-root {
             display: block !important;
             flex-grow: 1 !important; 
             width: 100% !important;
             height: 100% !important; 
+            
+            /* >>>>>>>>>>>>> THE COMPENSATION LINE <<<<<<<<<<<<< */
+            /* Pushes the app content up by 8 pixels. If this doesn't work,
+               try -10px, -12px, -15px, or -20px. */
+            margin-top: -8px !important; 
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
         }
 
-        /* 5. HIDING INJECTED OVERLAYS (Keeping the successful hidden element fix) */
+        /* 4. HIDING INJECTED OVERLAYS (Still needed) */
         iframe, 
         canvas, 
         [style*="position: fixed"], 
