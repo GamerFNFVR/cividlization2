@@ -2,77 +2,61 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Cividlization II</title>
-  <base href="./">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="assets/scss/font-awesome-5.12.0-1.all.min.css">
-  <script src='kongregate_api.js'></script>
-  <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
+  <meta charset="utf-8">
+  <title>Cividlization II</title>
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/scss/font-awesome-5.12.0-1.all.min.css">
+  <script src='kongregate_api.js'></script>
+  <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
-        /* 1. Global Reset (Highest Precedence) */
+        /* 1. Global Reset */
         *, ::before, ::after {
             margin: 0 !important;
             padding: 0 !important;
             box-sizing: border-box !important;
         }
 
-        /* 2. HTML/BODY: Use Viewport Height (vh) for true screen size and Absolute positioning */
-        html {
+        /* 2. Lock the window size */
+        html, body {
             width: 100vw !important;
             height: 100vh !important;
+            overflow: hidden !important;
+            position: relative !important;
+            background: #000 !important; /* Makes any remaining gaps black instead of white */
         }
         
-        body {
-            /* Force body to match the viewport size exactly */
-            width: 100vw !important;
-            height: 100vh !important; 
-            
-            /* Break out of flow and cover everything */
+        /* 3. THE STRETCH: Move up 30px, and make height 100% PLUS 500px */
+        app-root {
+            display: block !important;
             position: absolute !important;
             top: 0 !important;
             left: 0 !important;
+            width: 100% !important;
+
+            /* Pushes the top of the game up by 30px to hide the top bar */
+            margin-top: -30px !important; 
             
-            overflow: hidden !important; 
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-        
-        /* 3. APP ROOT: Force the app component to cover the entire body */
-        app-root {
-            /* Inherits the full 100vw/100vh from the absolutely positioned body */
-            position: absolute !important;
-            top: -30px !important; /* Keep the custom upward shift */
-            left: 0 !important;
-            width: 100vw !important;
-            height: calc(100vh + 30px) !important; /* Compensate height for the shift */
+            /* Forces the game to be 500 pixels taller than the screen */
+            height: calc(100vh + 500px) !important; 
             
-            display: block !important;
-            margin: 0 !important;
-            padding: 0 !important;
+            z-index: 9999 !important;
         }
 
-        /* 4. HIDING INJECTED OVERLAYS (Still needed) */
-        iframe, 
-        canvas, 
-        [style*="position: fixed"], 
-        [style*="position: absolute"] { 
+        /* 4. Kill any stray injected elements */
+        iframe, canvas:not(app-root canvas), div[style*="position: fixed"] {
             display: none !important;
-            height: 0 !important;
-            width: 0 !important; 
         }
     </style>
-
 </head>
 
-<body class="overflow-hidden">
-<script src="core.js"></script>
-
-  <app-root></app-root>
-<script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script><script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script><script src="polyfills-es5.ef4b1e1fc703b3ff76e3.js" nomodule defer></script><script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script><script src="main-es2015.2c3b8e9f04cf3db5cde1.js" type="module"></script><script src="main-es5.2c3b8e9f04cf3db5cde1.js" nomodule defer></script>
-
-</body>
-
-</html>
+<body>
+  <script src="core.js"></script>
+  <app-root></app-root>
+  <script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script>
+  <script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script>
+  <script src="polyfills-es5.ef4b1e1fc703b3ff76e3.js" nomodule defer></script>
+  <script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script>
+  <script src="main-es2015.
