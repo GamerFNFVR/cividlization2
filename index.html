@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/scss/font-awesome-5.12.0-1.all.min.css">
-  <script src='kongregate_api.js'></script>   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
+  <script src='kongregate_api.js'></script>
+  <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
         /* 1. Universal Reset: Essential high-precedence cleanup */
@@ -27,7 +28,7 @@
             overflow: hidden !important;
         }
 
-        /* Use Flexbox on body */
+        /* Use Flexbox on body for robust full-screen layout */
         body {
             display: flex !important; 
             flex-direction: column !important;
@@ -40,11 +41,11 @@
             width: 100% !important;
             height: 100% !important; 
             
-            /* >>>>>>>>>>>>> THE COMPENSATION LINE <<<<<<<<<<<<< */
-            /* Pushes the app content up by 8 pixels. If this doesn't work,
-               try -10px, -12px, -15px, or -20px. */
-            margin-top: -8px !important; 
-            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+            /* >>>>>>>>>>>>> THE COMPENSATION LINE (Set to -20px) <<<<<<<<<<<<< */
+            /* This forcefully pushes the application content up to cover the bar. 
+               Adjust this value if the game content shifts too far or too little. */
+            margin-top: -20px !important; 
+            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
         }
 
         /* 4. HIDING INJECTED OVERLAYS (Still needed) */
