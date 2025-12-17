@@ -8,7 +8,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-x-icon" href="favicon.ico">
   <link rel="stylesheet" href="assets/scss/font-awesome-5.12.0-1.all.min.css">
-  <script src='kongregate_api.js'></script>   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
+  <script src='kongregate_api.js'></script>
+  <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
         /* 1. Universal Reset: Essential high-precedence cleanup */
@@ -33,17 +34,17 @@
             flex-direction: column !important;
         }
         
-        /* 3. APP ROOT COMPENSATION - The solution is here! */
+        /* 3. APP ROOT COMPENSATION - The calculation solution is here! */
         app-root {
             display: block !important;
             flex-grow: 1 !important; 
             width: 100% !important;
-            height: 100% !important; 
             
-            /* >>>>>>>>>>>>> THE COMPENSATION LINE (Set to -35px) <<<<<<<<<<<<< */
-            /* This is the aggressive compensation to force the app content up and 
-               cover the persistent white bar. */
-            margin-top: -35px !important; 
+            /* >>>>>>>>>>>>> THE COMPENSATION LINES (30px Guess) <<<<<<<<<<<<< */
+            /* Pushes the content up to cover the bar: */
+            margin-top: -30px !important; 
+            /* Stretches the content down to fill the gap created by the margin: */
+            height: calc(100% + 30px) !important;
             /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
         }
 
