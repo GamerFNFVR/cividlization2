@@ -12,34 +12,42 @@
   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
-        /* 1. Universal Reset (Still needed for aggressive cleanup) */
+        /* 1. Universal Reset */
         * {
             margin: 0 !important;
             padding: 0 !important;
             box-sizing: border-box !important;
         }
 
-        /* 2. Global Sizing & FLEXBOX: Use display: flex to prevent margin collapse
-           and ensure content starts at the very edge. */
+        /* 2. Global Sizing & FLEXBOX (Kept for maximum compatibility) */
         html,
         body {
             width: 100%;
             height: 100%;
             overflow: hidden;
-            background-color: transparent !important; 
-            
-            /* >>>>>>>>>>>>> THE KEY FIX <<<<<<<<<<<<< */
-            display: flex; /* Makes body a flex container */
-            flex-direction: column; /* Ensures content flows top-to-bottom */
-            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+            display: flex;
+            flex-direction: column;
         }
-        
+
+        /* >>>>>>>>>>>>> THE BACKGROUND IMAGE FIX <<<<<<<<<<<<< */
+        html {
+            /* Replace 'YOUR_BACKGROUND_IMAGE_URL' with the correct path */
+            background-image: url('https://raw.githubusercontent.com/GamerFNFVR/cividlization2/refs/heads/main/background.0a8e8fb2999222b3636e.jpg'); 
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensures it stays fixed during scrolling (if any) */
+            background-position: center; /* Center the image */
+            background-size: cover !important; /* Forces the image to cover the entire viewport */
+        }
+        /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
         /* 3. Ensure app-root takes up the available space */
         app-root {
             display: block;
-            flex-grow: 1; /* Allows it to fill the full height of the body */
+            flex-grow: 1;
             width: 100%;
-            height: 100%; /* Important fallback */
+            height: 100%;
+            /* Make sure the app-root background is transparent so the html image shows through */
+            background-color: transparent !important;
         }
 
         /* 4. HIDING INJECTED ELEMENTS (Keeping the successful hidden element fix) */
