@@ -12,9 +12,25 @@
   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
+        /* * Set the HTML and BODY elements to zero margin/padding 
+         * and ensure they cover 100% of the viewport.
+         */
+        html,
         body {
             margin: 0;
             padding: 0;
+            width: 100%;
+            height: 100%; 
+            overflow: hidden; 
+        }
+        
+        /* * Target the main Angular component (<app-root>) 
+         * to make sure it also spans the full screen.
+         */
+        app-root {
+            display: block;
+            width: 100%;
+            height: 100%;
         }
     </style>
 
