@@ -2,66 +2,66 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>Cividlization II</title>
-  <base href="./">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="assets/scss/font-awesome-5.12.0-1.all.min.css">
-  <script src='kongregate_api.js'></script>
-  <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
+  <meta charset="utf-8">
+  <title>Cividlization II</title>
+  <base href="./">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/scss/font-awesome-5.12.0-1.all.min.css">
+  <script src='kongregate_api.js'></script>
+  <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
-    <style>
-        /* 1. Global Reset */
-        *, ::before, ::after {
-            margin: 0 !important;
-            padding: 0 !important;
-            box-sizing: border-box !important;
-        }
+    <style>
+        /* 1. Global Reset */
+        *, ::before, ::after {
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
+        }
 
-        /* 2. Lock the window size */
-        html, body {
-            width: 100vw !important;
-            height: 100vh !important;
-            overflow: hidden !important;
-            position: relative !important;
-            background: #fff !important; /* <--- THIS IS THE CHANGE (white background) */
-        }
-        
-        /* 3. THE FINAL CORRECTED STRETCH */
-        app-root {
-            display: block !important;
-            position: absolute !important;
-            top: 0 !important;
-            left: 0 !important;
-            width: 100% !important;
+        /* 2. Lock the window size and stretch background */
+        html, body {
+            width: 100% !important;
+            height: 100% !important;
+            min-height: 100vh !important;
+            overflow: hidden !important;
+            position: relative !important;
+            /* This ensures the white background covers everything */
+            background-color: #fff !important; 
+            background-size: cover !important;
+        }
+        
+        /* 3. THE FINAL CORRECTED STRETCH */
+        app-root {
+            display: block !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            /* Changed from +100px to 100vh to fit the screen exactly */
+            height: 100vh !important; 
+            
+            margin-top: 0 !important; 
+            z-index: 9999 !important;
+            background: transparent !important;
+        }
 
-            /* >>>>>>>>>>>>>> CRITICAL CHANGE: MARGIN-TOP IS REMOVED <<<<<<<<<<<<< */
-            /* Setting margin-top to 0 or removing it centers the content vertically. */
-            margin-top: 0 !important; 
-            
-            /* The stretch to cover the total screen + any unexpected gaps */
-            height: calc(100vh + 100px) !important; 
-            
-            z-index: 9999 !important;
-        }
-
-        /* 4. Kill any stray injected elements */
-        iframe, canvas:not(app-root canvas), div[style*="position: fixed"] {
-            display: none !important;
-        }
-    </style>
+        /* 4. Kill any stray injected elements */
+        iframe, canvas:not(app-root canvas), div[style*="position: fixed"] {
+            display: none !important;
+        }
+    </style>
 </head>
 
 <body>
-  <script src="core.js"></script>
-  <app-root></app-root>
-  <script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script>
-  <script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script>
-  <script src="polyfills-es5.ef4b1e1fc703b3ff76e3.js" nomodule defer></script>
-  <script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script>
-  <script src="main-es2015.2c3b8e9f04cf3db5cde1.js" type="module"></script>
-  <script src="main-es5.2c3b8e9f04cf3db5cde1.js" nomodule defer></script>
+  <script src="core.js"></script>
+  <app-root></app-root>
+  <script src="runtime-es2015.edb2fcf2778e7bf1d426.js" type="module"></script>
+  <script src="runtime-es5.edb2fcf2778e7bf1d426.js" nomodule defer></script>
+  <script src="polyfills-es5.ef4b1e1fc703b3ff76e3.js" nomodule defer></script>
+  <script src="polyfills-es2015.2987770fde9daa1d8a2e.js" type="module"></script>
+  <script src="main-es2015.2c3b8e9f04cf3db5cde1.js" type="module"></script>
+  <script src="main-es5.2c3b8e9f04cf3db5cde1.js" nomodule defer></script>
 </body>
 
 </html>
