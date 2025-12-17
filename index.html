@@ -12,14 +12,14 @@
   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
-        /* This rule targets every element (*) and forces its margin and padding to zero, 
-           overriding all other rules to ensure the white bar is gone. */
+        /* 1. Universal Reset: Targets ALL elements */
         * {
             margin: 0 !important;
             padding: 0 !important;
+            box-sizing: border-box !important; /* Adding this just in case */
         }
 
-        /* Keep the aggressive size reset for good measure */
+        /* 2. Global Sizing: Ensure primary containers cover the whole screen */
         html,
         body {
             width: 100%;
@@ -31,6 +31,15 @@
             display: block;
             width: 100%;
             height: 100%;
+        }
+
+        /* 3. Targeted Zero-Height: This targets the FIRST element inside the app-root 
+           and ensures it has zero height and margin/padding. This often kills 
+           dynamically injected elements or initial component spacing. */
+        app-root > :first-child {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            height: 0 !important;
         }
     </style>
 
