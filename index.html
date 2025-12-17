@@ -34,16 +34,16 @@
             flex-direction: column !important;
         }
         
-        /* 3. APP ROOT COMPENSATION - The calculation solution is here! */
+        /* 3. APP ROOT COMPENSATION - The custom values are here! */
         app-root {
             display: block !important;
             flex-grow: 1 !important; 
             width: 100% !important;
             
-            /* >>>>>>>>>>>>> THE COMPENSATION LINES (Set to 50px) <<<<<<<<<<<<< */
-            /* Pushes the content up to cover the bar: */
-            margin-top: -50px !important; 
-            /* Stretches the content down to fill the gap created by the margin: */
+            /* >>>>>>>>>>>>> PULL UP COMPENSATION: Set to -30px <<<<<<<<<<<<< */
+            margin-top: -30px !important; 
+            
+            /* >>>>>>>>>>>>> STRETCH HEIGHT COMPENSATION: Set to 50px <<<<<<<<<<<<< */
             height: calc(100% + 50px) !important;
             /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
         }
