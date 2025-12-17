@@ -12,41 +12,46 @@
   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
-        /* 1. Universal Reset: Essential high-precedence cleanup */
+        /* 1. Global Reset (Highest Precedence) */
         *, ::before, ::after {
             margin: 0 !important;
             padding: 0 !important;
             box-sizing: border-box !important;
         }
 
-        /* 2. Body/HTML: Full-screen structural integrity */
-        html, body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100% !important;
-            height: 100% !important;
-            overflow: hidden !important;
-        }
-
-        /* Use Flexbox on body for robust full-screen layout */
-        body {
-            display: flex !important; 
-            flex-direction: column !important;
+        /* 2. HTML/BODY: Use Viewport Height (vh) for true screen size and Absolute positioning */
+        html {
+            width: 100vw !important;
+            height: 100vh !important;
         }
         
-        /* 3. APP ROOT COMPENSATION - The custom values are here! */
+        body {
+            /* Force body to match the viewport size exactly */
+            width: 100vw !important;
+            height: 100vh !important; 
+            
+            /* Break out of flow and cover everything */
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            
+            overflow: hidden !important; 
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        /* 3. APP ROOT: Force the app component to cover the entire body */
         app-root {
+            /* Inherits the full 100vw/100vh from the absolutely positioned body */
+            position: absolute !important;
+            top: -30px !important; /* Keep the custom upward shift */
+            left: 0 !important;
+            width: 100vw !important;
+            height: calc(100vh + 30px) !important; /* Compensate height for the shift */
+            
             display: block !important;
-            flex-grow: 1 !important; 
-            width: 100% !important;
-            
-            /* >>>>>>>>>>>>> PULL UP COMPENSATION: Set to -30px <<<<<<<<<<<<< */
-            margin-top: -30px !important; 
-            
-            /* >>>>>>>>>>>>> STRETCH HEIGHT COMPENSATION: Set to 100px <<<<<<<<<<<<< */
-            /* This should definitely ensure the content covers any gaps. */
-            height: calc(100% + 100px) !important;
-            /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> */
+            margin: 0 !important;
+            padding: 0 !important;
         }
 
         /* 4. HIDING INJECTED OVERLAYS (Still needed) */
