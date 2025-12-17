@@ -12,19 +12,21 @@
   <link rel="stylesheet" href="styles.5eda8018262f85033100.css">
 
     <style>
-        /* 1. Universal Reset (Still good practice) */
+        /* 1. Universal Reset (Standard, aggressive reset for all elements) */
         * {
             margin: 0 !important;
             padding: 0 !important;
             box-sizing: border-box !important;
         }
 
-        /* 2. Global Sizing (Still necessary for full screen) */
+        /* 2. Global Sizing (Ensure primary containers cover the whole screen) */
         html,
         body {
             width: 100%;
             height: 100%;
             overflow: hidden;
+            /* CRITICAL: Ensure no background shows if something fails */
+            background-color: black !important;
         }
         
         app-root {
@@ -33,11 +35,15 @@
             height: 100%;
         }
 
-        /* 3. TARGETED INJECTION HIDING: This targets common injection elements 
-           (like iframes or empty divs) and hides them completely. 
-           The :last-of-type is a guess for where an ad might be appended. */
+        /* 3. TARGETING SANDBOXED/OVERLAY ELEMENTS */
+        /* Targets ALL iframes, canvas elements, and elements with fixed/absolute position 
+           that are likely injected by a script or platform */
         iframe, 
+        canvas, 
+        [style*="position: fixed"], 
+        [style*="position: absolute"],
         div:empty:last-of-type,
+        body > div:last-child,
         body > div:first-child { 
             display: none !important;
             height: 0 !important;
