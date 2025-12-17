@@ -25,11 +25,10 @@
             height: 100vh !important;
             overflow: hidden !important;
             position: relative !important;
-            /* Using a dark background color to make sure any exposed area isn't white */
             background: #000 !important; 
         }
         
-        /* 3. THE FINAL STRETCH: Move up 30px, and make height 100% PLUS 100px */
+        /* 3. THE FINAL CORRECTED STRETCH */
         app-root {
             display: block !important;
             position: absolute !important;
@@ -37,10 +36,11 @@
             left: 0 !important;
             width: 100% !important;
 
-            /* Keeps the top compensation that covered the white bar */
-            margin-top: -30px !important; 
+            /* >>>>>>>>>>>>>> CRITICAL CHANGE: MARGIN-TOP IS REMOVED <<<<<<<<<<<<< */
+            /* Setting margin-top to 0 or removing it centers the content vertically. */
+            margin-top: 0 !important; 
             
-            /* Reduced stretch to bring the game back into view */
+            /* The stretch to cover the total screen + any unexpected gaps */
             height: calc(100vh + 100px) !important; 
             
             z-index: 9999 !important;
